@@ -23,24 +23,24 @@ public class LocateCarServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        resp.setContentType("text/html");
+
         String nomeCliente = req.getParameter("nomeCliente");
         String placa = req.getParameter("placa");
         String dataLocacao = req.getParameter("dataLocacao").replace('/', '-');
         String dataDevolucao = req.getParameter("dataDevolucao").replace('/', '-');
         BigDecimal valorLocacao = calcularValorDiarias(dataLocacao, dataDevolucao);
-        if (valorLocacao.equals(null)) {
-            resp.getWriter().println("<h3>Data digitada em formato incorreto. Formato correto é ano-mês-dia -> [aaaa-mm-dd)]</h3>");
-        }
 
         if (nomeCliente.equals("") || placa.equals("") || dataLocacao.equals("") || dataDevolucao.equals("")) {
+            resp.setContentType("text/html");
             resp.getWriter().println("<h2>Não pode haver campos vazios! Retorne a página anterior e preencha todos os campos.</h2>");
+        } else if (valorLocacao.floatValue() < 0) {
+            resp.setContentType("text/html");
+            resp.getWriter().println("<h2>Data digitada em formato incorreto. Formato correto é ano-mês-dia -> [aaaa-mm-dd)]</h2>");
         } else {
             req.setAttribute("nomeCliente", nomeCliente);
             req.setAttribute("placa", placa);
             req.setAttribute("dataLocacao", dataLocacao);
             req.setAttribute("dataDevolucao", dataDevolucao);
-
             req.setAttribute("valorAluguel", valorLocacao);
 
             RequestDispatcher reqDisp = req.getRequestDispatcher("data.jsp");
@@ -50,13 +50,14 @@ public class LocateCarServlet extends HttpServlet {
 
 
     private BigDecimal calcularValorDiarias(String dataLocacao, String dataDevolucao) {
-        BigDecimal valor = null;
+        BigDecimal valor = BigDecimal.valueOf(-1);
         try {
             LocalDate dataInicialCalc = LocalDate.parse(dataLocacao, DateTimeFormatter.ISO_LOCAL_DATE);
             LocalDate dataFinalCalc = LocalDate.parse(dataDevolucao, DateTimeFormatter.ISO_LOCAL_DATE);
             valor = this.valorDiaria.multiply(BigDecimal.valueOf(Math.abs(ChronoUnit.DAYS.between(dataInicialCalc, dataFinalCalc))));
-        } catch (IllegalArgumentException e) {
+        } catch (RuntimeException e) {
+        } finally {
+            return valor;
         }
-        return valor;
     }
 }
