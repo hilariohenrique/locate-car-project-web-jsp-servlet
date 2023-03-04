@@ -30,12 +30,19 @@
             </div>
           </div>
 
-          div class="mb-3 row">
+         <div class="mb-3 row">
             <label for="staticAddress" class="col-md-2 col-form-label">Data Devolução</label>
             <div class="col-md-10">
               <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="<%= request.getAttribute("dataDevolucao") %>">
             </div>
           </div>
+
+          <div class="mb-3 row">
+                      <label for="staticAddress" class="col-md-2 col-form-label">Valor do aluguel</label>
+                      <div class="col-md-10">
+                        <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="<%= request.getAttribute("valorAluguel") %>">
+                      </div>
+                    </div>
 
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
