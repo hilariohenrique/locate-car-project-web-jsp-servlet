@@ -21,13 +21,14 @@
           <input type="text" name="placa" class="form-control">
         </div>
 
+
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default3">Data Locação</span>
+          <span class="input-group-text" id="inputGroup-sizing-default3">Data Locação [aaaa-mm-dd]</span>
           <input type="text" name="dataLocacao" class="form-control">
         </div>
 
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default3">Data Devolução</span>
+          <span class="input-group-text" id="inputGroup-sizing-default3">Data Devolução [aaaa-mm-dd]</span>
           <input type="text" name="dataDevolucao" class="form-control">
         </div>
 
