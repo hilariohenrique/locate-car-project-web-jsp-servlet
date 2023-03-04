@@ -10,13 +10,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
-@WebServlet("/locateCarServlet")
+@WebServlet("/cadastrarAluguel")
 public class LocateCarServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        PrintWriter output = resp.getWriter();
-        output.println("<h1>Minha Servlet!</h1>");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        String nomeCliente = req.getParameter("nomeCliente");
+        String placa = req.getParameter("placa");
+        String dataLocacao = req.getParameter("dataLocacao");
+        String dataDevolucao = req.getParameter("dataDevolucao");
+
+        req.setAttribute("nomeCliente",nomeCliente);
+        req.setAttribute("placa",placa);
+        req.setAttribute("dataLocacao",dataLocacao);
+        req.setAttribute("dataDevolucao",dataDevolucao);
 
     }
 }

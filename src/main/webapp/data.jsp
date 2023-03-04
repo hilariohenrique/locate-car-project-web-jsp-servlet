@@ -7,26 +7,33 @@
     <body>
       <div class="container-md">
 
-          <p class="text-center fs-1">Resumo</p>
+          <p class="text-center fs-1">Dados do aluguel do veículo</p>
 
           <div class="mb-3 row">
-            <label for="staticName" class="col-md-2 col-form-label">Nome</label>
+            <label for="staticName" class="col-md-2 col-form-label">Nome Cliente</label>
             <div class="col-md-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticName" value="<%= request.getAttribute("name") %>">
+              <input type="text" readonly class="form-control-plaintext" id="staticName" value="<%= request.getAttribute("nomeCliente") %>">
             </div>
           </div>
 
             <div class="mb-3 row">
-              <label for="staticIdade" class="col-md-2 col-form-label">Idade</label>
+              <label for="staticIdade" class="col-md-2 col-form-label">Placa Veículo</label>
               <div class="col-md-10">
-                <input type="text" readonly class="form-control-plaintext" id="staticIdade" value="<%= request.getAttribute("age") %>">
+                <input type="text" readonly class="form-control-plaintext" id="staticIdade" value="<%= request.getAttribute("placa") %>">
               </div>
             </div>
 
           <div class="mb-3 row">
-            <label for="staticAddress" class="col-md-2 col-form-label">Endereço</label>
+            <label for="staticAddress" class="col-md-2 col-form-label">Data Locação</label>
             <div class="col-md-10">
-              <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="<%= request.getAttribute("address") %>">
+              <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="<%= request.getAttribute("dataLocacao") %>">
+            </div>
+          </div>
+
+          div class="mb-3 row">
+            <label for="staticAddress" class="col-md-2 col-form-label">Data Devolução</label>
+            <div class="col-md-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticAddress" value="<%= request.getAttribute("dataDevolucao") %>">
             </div>
           </div>
 

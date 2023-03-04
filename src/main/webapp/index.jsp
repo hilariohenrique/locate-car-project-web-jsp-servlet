@@ -5,26 +5,32 @@
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<form action="cadastro" method="POST">
+<form action="cadastrarAluguel" method="POST">
 
     <div class="container-md">
 
-        <p class="text-center fs-1">Formulário</p>
+        <p class="text-center fs-1">Registro aluguel de veículo</p>
 
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
-          <input type="text" name="name" class="form-control">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nome Cliente</span>
+          <input type="text" name="nomeCliente" class="form-control">
         </div>
 
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default2">Idade</span>
-          <input type="text" name="age" class="form-control">
+          <span class="input-group-text" id="inputGroup-sizing-default2">Placa Veículo</span>
+          <input type="text" name="placa" class="form-control">
         </div>
 
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default3">Endereço</span>
-          <input type="text" name="address" class="form-control">
+          <span class="input-group-text" id="inputGroup-sizing-default3">Data Locação</span>
+          <input type="text" name="dataLocacao" class="form-control">
         </div>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default3">Data Devolução</span>
+          <input type="text" name="dataDevolucao" class="form-control">
+        </div>
+
 
         <input type="submit" class="btn btn-primary"  />
 
