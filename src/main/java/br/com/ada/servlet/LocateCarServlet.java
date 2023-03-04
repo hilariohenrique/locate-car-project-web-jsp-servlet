@@ -28,7 +28,7 @@ public class LocateCarServlet extends HttpServlet {
         String placa = req.getParameter("placa");
         String dataLocacao = req.getParameter("dataLocacao").replace('/', '-');
         String dataDevolucao = req.getParameter("dataDevolucao").replace('/', '-');
-        BigDecimal valorLocacao = BigDecimal.valueOf(calcularValorDiarias(dataLocacao, dataDevolucao));
+        BigDecimal valorLocacao = calcularValorDiarias(dataLocacao, dataDevolucao);
         if (valorLocacao.equals(null)) {
             resp.getWriter().println("<h3>Data digitada em formato incorreto. Formato correto é ano-mês-dia -> [aaaa-mm-dd)]</h3>");
         }
